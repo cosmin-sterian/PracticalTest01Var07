@@ -26,7 +26,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:saveEnabled="false"/>
 
             <EditText
                 android:id="@+id/editText2"
@@ -35,7 +36,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:saveEnabled="false"/>
         </TableRow>
 
         <TableRow
@@ -49,7 +51,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:saveEnabled="false"/>
 
             <EditText
                 android:id="@+id/editText4"
@@ -58,7 +61,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:saveEnabled="false"/>
         </TableRow>
 
     </TableLayout>
