@@ -1,5 +1,6 @@
 package ro.pub.cs.systems.eim.practicaltest01var07;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +46,13 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 				startActivity(intent);
 			}
 		});
+
+		Intent intent = new Intent();
+		intent.setComponent(new ComponentName(
+				"ro.pub.cs.systems.eim.practicaltest01var07",
+				"ro.pub.cs.systems.eim.practicaltest01var07.PracticalTest01Var07Service")
+		);
+		startService(intent);
 	}
 
 	private boolean allTextsAreDigitsOnly() {
@@ -70,5 +78,16 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 		editText2.setText(savedInstanceState.getString("n2", ""));
 		editText3.setText(savedInstanceState.getString("n3", ""));
 		editText4.setText(savedInstanceState.getString("n4", ""));
+	}
+
+	@Override
+	protected void onDestroy() {
+		Intent intent = new Intent();
+		intent.setComponent(new ComponentName(
+				"ro.pub.cs.systems.eim.practicaltest01var07",
+				"ro.pub.cs.systems.eim.practicaltest01var07.PracticalTest01Var07Service")
+		);
+		stopService(intent);
+		super.onDestroy();
 	}
 }

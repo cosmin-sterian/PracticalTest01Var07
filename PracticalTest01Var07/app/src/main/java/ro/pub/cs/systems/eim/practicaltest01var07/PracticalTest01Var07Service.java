@@ -3,6 +3,7 @@ package ro.pub.cs.systems.eim.practicaltest01var07;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.util.Random;
 
@@ -17,6 +18,7 @@ public class PracticalTest01Var07Service extends Service {
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
+		Log.i("Service", "Service started");
 		thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
