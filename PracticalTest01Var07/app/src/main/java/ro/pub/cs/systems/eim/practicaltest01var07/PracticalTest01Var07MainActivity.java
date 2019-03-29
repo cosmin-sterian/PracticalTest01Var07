@@ -53,4 +53,22 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 				TextUtils.isDigitsOnly(editText3.getText().toString()) &
 				TextUtils.isDigitsOnly(editText4.getText().toString());
 	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState.putString("n1", editText1.getText().toString());
+		outState.putString("n2", editText2.getText().toString());
+		outState.putString("n3", editText3.getText().toString());
+		outState.putString("n4", editText4.getText().toString());
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		editText1.setText(savedInstanceState.getString("n1", ""));
+		editText2.setText(savedInstanceState.getString("n2", ""));
+		editText3.setText(savedInstanceState.getString("n3", ""));
+		editText4.setText(savedInstanceState.getString("n4", ""));
+	}
 }
