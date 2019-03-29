@@ -26,6 +26,7 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center"
                 android:inputType="textPersonName" />
 
@@ -36,6 +37,7 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center"
                 android:inputType="textPersonName" />
         </TableRow>
@@ -51,6 +53,7 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center"
                 android:inputType="textPersonName" />
 
@@ -61,6 +64,7 @@
                 android:layout_weight="1"
                 android:editable="false"
                 android:ems="10"
+                android:enabled="false"
                 android:gravity="center"
                 android:inputType="textPersonName" />
         </TableRow>

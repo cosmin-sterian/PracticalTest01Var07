@@ -23,6 +23,10 @@ public class PracticalTest01Var07SecondaryActivity extends AppCompatActivity {
 		editText2 = findViewById(R.id.editText2);
 		editText3 = findViewById(R.id.editText3);
 		editText4 = findViewById(R.id.editText4);
+		editText1.setKeyListener(null);
+		editText2.setKeyListener(null);
+		editText3.setKeyListener(null);
+		editText4.setKeyListener(null);
 
 		button_sum = findViewById(R.id.button_sum);
 		button_product = findViewById(R.id.button_product);
