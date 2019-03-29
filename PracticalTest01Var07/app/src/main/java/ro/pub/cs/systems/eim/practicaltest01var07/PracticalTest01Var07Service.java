@@ -11,7 +11,7 @@ public class PracticalTest01Var07Service extends Service {
 	public PracticalTest01Var07Service() {
 	}
 
-	private static final int sleepTime = 10 * 1000;
+	private static final int sleepTime = 2 * 1000;
 
 	boolean running = true;
 	Thread thread;
