@@ -1,5 +1,6 @@
 package ro.pub.cs.systems.eim.practicaltest01var07;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +33,12 @@ public class PracticalTest01Var07SecondaryActivity extends AppCompatActivity {
 		button_product = findViewById(R.id.button_product);
 		button_sum.setOnClickListener(mathClickListener);
 		button_product.setOnClickListener(mathClickListener);
+
+		Intent calledIntent = getIntent();
+		editText1.setText(calledIntent.getStringExtra("n1"));
+		editText2.setText(calledIntent.getStringExtra("n2"));
+		editText3.setText(calledIntent.getStringExtra("n3"));
+		editText4.setText(calledIntent.getStringExtra("n4"));
 	}
 
 	class MathClickListener implements View.OnClickListener {
@@ -41,17 +48,17 @@ public class PracticalTest01Var07SecondaryActivity extends AppCompatActivity {
 			int result;
 			switch (v.getId()) {
 				case R.id.button_sum:
-					result = Integer.parseInt(editText1.getText().toString()) +
-							Integer.parseInt(editText2.getText().toString()) +
-							Integer.parseInt(editText3.getText().toString()) +
-							Integer.parseInt(editText4.getText().toString());
+					result = getSumIntFromEditText(editText1) +
+							getSumIntFromEditText(editText2) +
+							getSumIntFromEditText(editText3) +
+							getSumIntFromEditText(editText4);
 					break;
 
 				case R.id.button_product:
-					result = Integer.parseInt(editText1.getText().toString()) *
-							Integer.parseInt(editText2.getText().toString()) *
-							Integer.parseInt(editText3.getText().toString()) *
-							Integer.parseInt(editText4.getText().toString());
+					result = getProdIntFromEditText(editText1) *
+							getProdIntFromEditText(editText2) *
+							getProdIntFromEditText(editText3) *
+							getProdIntFromEditText(editText4);
 					break;
 
 				default:
@@ -60,5 +67,19 @@ public class PracticalTest01Var07SecondaryActivity extends AppCompatActivity {
 			}
 			Toast.makeText(PracticalTest01Var07SecondaryActivity.this, "Result is: " + result, Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	private int getSumIntFromEditText(EditText editText) {
+		if (!editText.getText().toString().equals("")) {
+			return Integer.parseInt(editText.getText().toString());
+		}
+		return 0;
+	}
+
+	private int getProdIntFromEditText(EditText editText) {
+		if (!editText.getText().toString().equals("")) {
+			return Integer.parseInt(editText.getText().toString());
+		}
+		return 1;
 	}
 }
