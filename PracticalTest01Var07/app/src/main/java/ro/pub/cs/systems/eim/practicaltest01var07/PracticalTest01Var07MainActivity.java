@@ -1,7 +1,9 @@
 package ro.pub.cs.systems.eim.practicaltest01var07;
 
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +16,9 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 
 	EditText editText1, editText2, editText3, editText4;
 	Button button_set;
+
+	BroadcastReceiver startedServiceBroadcastReceiver;
+	IntentFilter startedServiceIntentFilter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,12 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 				"ro.pub.cs.systems.eim.practicaltest01var07.PracticalTest01Var07Service")
 		);
 		startService(intent);
+
+		startedServiceBroadcastReceiver = new StartedServiceBroadcastReceiver(editText1, editText2, editText3, editText4);
+		startedServiceIntentFilter = new IntentFilter() {{
+			addAction("randnumbers");
+		}};
+
 	}
 
 	private boolean allTextsAreDigitsOnly() {
@@ -78,6 +89,18 @@ public class PracticalTest01Var07MainActivity extends AppCompatActivity {
 		editText2.setText(savedInstanceState.getString("n2", ""));
 		editText3.setText(savedInstanceState.getString("n3", ""));
 		editText4.setText(savedInstanceState.getString("n4", ""));
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		registerReceiver(startedServiceBroadcastReceiver, startedServiceIntentFilter);
+	}
+
+	@Override
+	protected void onPause() {
+		super.onPause();
+		unregisterReceiver(startedServiceBroadcastReceiver);
 	}
 
 	@Override
